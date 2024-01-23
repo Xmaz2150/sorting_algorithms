@@ -6,8 +6,6 @@ void bubble_helper(int *array, size_t size);
 void bubble_sort(int *array, size_t size)
 {
 	bubble_helper(array, size);
-	/* calling helper again to ensure comple sort */
-	bubble_helper(array, size);
 }
 
 void swap(int *arr, size_t size)
