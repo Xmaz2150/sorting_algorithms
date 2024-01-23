@@ -27,6 +27,8 @@ void bubble_helper(int *array, size_t size)
 {
 	size_t i, swaps;
 
+	if (size < 2)
+		return;
 	print_array(array, size);
 	swaps = 0;
 	for (i = 0; i < size - 1; i++)
