@@ -1,6 +1,6 @@
 #include "sort.h"
 
-void swap(int *arr, size_t idx0, size_t idx1, size_t *swaps_addr);
+void swap(int *arr, size_t size);
 void bubble_helper(int *array, size_t size);
 
 void bubble_sort(int *array, size_t size)
@@ -10,38 +10,32 @@ void bubble_sort(int *array, size_t size)
 	bubble_helper(array, size);
 }
 
-void swap(int *arr, size_t idx0, size_t idx1, size_t *swaps_addr)
+void swap(int *arr, size_t size)
 {
-	size_t tmp;
+	size_t i, tmp, idx0, idx1;
 
-	if (arr[idx0] > arr[idx1])
+	for (i = 0; i < size - 1; i++)
 	{
-		tmp = arr[idx0];
-		arr[idx0] = arr[idx1];
-		arr[idx1] = tmp;
-		*swaps_addr = 1;
+		idx0 = i;
+		idx1 = i + 1;
+		if (arr[idx0] > arr[idx1])
+		{
+			tmp = arr[idx0];
+			arr[idx0] = arr[idx1];
+			arr[idx1] = tmp;
+		}
 	}
 }
 
 void bubble_helper(int *array, size_t size)
 {
-	size_t i, swaps;
+	size_t i;
 
 	if (size < 2)
 		return;
-	print_array(array, size);
-	swaps = 0;
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; i < size; i++)
 	{
-		swap(array, i, i + 1, &swaps);
-		if (i == size - 2)
-		{
-			print_array(array, size);
-			if (swaps == 1)
-			{
-				i = 0;
-				swaps = 0;
-			}
-		}
+		swap(array, size);
+		print_array(array, size);
 	}
 }
