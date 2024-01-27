@@ -53,6 +53,7 @@ int split(int *array, size_t size, int low, int high)
 {
 	int ruler, i, j;
 
+	(void)size;
 	ruler = array[high];
 	i = low - 1;
 
