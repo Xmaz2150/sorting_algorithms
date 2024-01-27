@@ -1,6 +1,6 @@
 #include "sort.h"
 
-int split(int *array, size_t size, int low, int high);
+int split(int *array, int low, int high);
 void swap(int *a, int *b);
 
 /**
@@ -49,11 +49,10 @@ void swap(int *a, int *b)
  *
  * Return: int
  */
-int split(int *array, size_t size, int low, int high)
+int split(int *array, int low, int high)
 {
 	int ruler, i, j;
 
-	(void)size;
 	ruler = array[high];
 	i = low - 1;
 

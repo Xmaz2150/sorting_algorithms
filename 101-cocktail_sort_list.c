@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include "sort.h"
 
-void swap_nodes(listint_t **list, listint_t *first_node, listint_t *second_node);
+void swap_nodes(listint_t **list, listint_t *fst_node, listint_t *sec_node);
 
 /**
 * cocktail_sort_list - sorting algo, sorts doubly lls of ints
-*
 * @list: Input, head of doubly lls
-* 
+*
 * Return: none
 */
 void cocktail_sort_list(listint_t **list)
@@ -63,26 +62,26 @@ void cocktail_sort_list(listint_t **list)
 * swap_nodes - swaps two nodes in doubly lls
 *
 * @list: Input, head of lls
-* @first_node: Input, first node to be swapped with
-* @second_node: Input, second node to be swapped
+* @fst_node: Input, first node to be swapped with
+* @sec_node: Input, second node to be swapped
 *
 * Return: none
 */
-void swap_nodes(listint_t **list, listint_t *first_node, listint_t *second_node)
+void swap_nodes(listint_t **list, listint_t *fst_node, listint_t *sec_node)
 {
 
-	if (first_node->prev != NULL)
-		first_node->prev->next = second_node;
+	if (fst_node->prev != NULL)
+		fst_node->prev->next = sec_node;
 	else
-		*list = second_node;
+		*list = sec_node;
 
-	if (second_node->next != NULL)
-		second_node->next->prev = first_node;
+	if (sec_node->next != NULL)
+		sec_node->next->prev = fst_node;
 
-	first_node->next = second_node->next;
-	second_node->prev = first_node->prev;
+	fst_node->next = sec_node->next;
+	sec_node->prev = fst_node->prev;
 
-	first_node->prev = second_node;
-	second_node->next = first_node;
+	fst_node->prev = sec_node;
+	sec_node->next = fst_node;
 }
 

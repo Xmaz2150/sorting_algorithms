@@ -36,6 +36,7 @@ void insertion_sort_list(listint_t **list)
 listint_t *swap_node(listint_t *node, listint_t **list)
 {
 	listint_t *prev_node, *current;
+
 	prev_node = node->prev;
 	current = node;
 
